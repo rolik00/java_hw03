@@ -35,9 +35,12 @@ public class Main {
         String gender = get_gender(parts[2]);
         int age = full_age(parts[3]);
         if (age == -1) return;
+        String suffix = " лет";
+        if (age % 10 == 1 && (age < 10 || age > 20)) suffix = " год";
+        if (age % 10 > 1 && age % 10 < 5 && (age < 10 || age > 20)) suffix = " года";
         System.out.println("ФИО: " + parts[0] + " " + parts[1].charAt(0) + parts[2].charAt(0));
         System.out.println("Пол: " + gender);
-        System.out.println("Полный возраст: " + age + " лет");
+        System.out.println("Полный возраст: " + age + suffix);
     }
     public static void main(String[] args) {
         System.out.println("Введите Фамилию, Имя, Отчество и дату рождения: ");
